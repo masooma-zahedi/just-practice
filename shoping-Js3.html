@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping-Js1</title>
+    <link rel="shortcut icon" href='img/shopping-cart.png' type="image/jpg">
+    <script src='https://kit.fontawesome.com/07f98e99cb.js'></script>
+    <script src="goodCode.js"></script>
+    <style>
+        body{
+            margin: 0;
+            /* height:1200px; */
+        }
+        *{
+            box-sizing: border-box;
+        }
+        #prods li{
+            list-style-type: none;
+            display: inline-block;
+
+        }
+        #prods li:hover img{
+            transform: scale(1.5);
+            opacity: 1;
+            z-index: 50;
+        }
+        #prods img{
+            width: 60px;
+            height: 60px;
+            padding: 3px;
+            border: 1px solid #4b2feb8f;
+            border-radius: 10px;
+            transition: all 0.5s;
+            background-color: rgb(218, 220, 238);
+            opacity: 0.7;
+            position: relative;
+            cursor:pointer;
+
+
+        }
+        #cart{
+            background-color: rgba(142, 233, 146, 0.74);
+            width: 260px;
+            min-height: 70px;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            font-size: 14px;
+            padding-bottom: 35px;
+        }
+        #total7{
+            background-color: rgba(248, 242, 242, 0.63);
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            line-height: 30px;
+            font-weight: bold;
+            color: rgba(31, 75, 22, 0.979);
+            text-align: center;
+        }
+        #cart img{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1px dotted  #4b2feb8f;
+            padding: 3px;
+            vertical-align: middle;
+            margin-right: 10px;
+
+        }
+        #cart b{
+            color:maroon;
+        }
+        #clear{
+            background-color: rgba(160, 186, 235, 0.61);
+            padding: 5px 10px;
+            margin-left: 40px;
+            border-radius: 10px;
+            border: 2px solid #8279ce6e;
+            outline: none;
+        }
+        #clear:hover{
+            border:2px solid #8179ce ;
+            cursor: pointer;
+        }
+        #close{
+            display: inline-block;
+            position: relative;
+            right: -90%;
+            top: -20px;
+            border: 1px solid red;
+            /* top: 3px; */
+        }
+        #pic1{
+            border: 1px solid blue;
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            let pics = document.querySelectorAll('#prods li img');
+            for(let i = 0; i < pics.length; i++){
+                pics[i].addEventListener('click',function(){
+                    //============
+                    // var close = document.createElement('span');
+                    // var y = _('#picCart').appendChild(close);
+                    // document.querySelector('#picCart span').classList.add('fa');
+                    // document.querySelector('#picCart span').classList.add('fa-close');
+                    // var t = document.querySelector('#picCart span');
+                    //=========
+
+                    op = '';
+                    op +='<img src=\"'+this.src+'\" >';
+                    op += this.getAttribute('data-pname') + ' ---<b> $';
+                    op += this.getAttribute('data-price') + '</b><br/>';
+                    _('#pic1').innerHTML += op +'<span class=\"fa fa-close\" id=\"close\"></span>' ;
+                   //====================
+
+                    newp = parseInt(this.getAttribute('data-price'));
+                    oldp = parseInt(_('#total7').innerHTML);
+                    _('#total7').innerHTML = oldp + newp;
+                })
+            }
+            _('#clear').addEventListener('click',function(){
+                _('#picCart').innerHTML = '';
+                _('#total7').innerHTML = '0';
+            }) 
+
+        })
+    </script>
+</head>
+<body>
+    <h1>products shopping</h1>
+    <ul id="prods">
+        <li ><img src="img/product1.jpg" data-pname="dolor" data-price="234"></li>
+        <li ><img src="img/product2.jpg" data-pname="eius " data-price="134"></li>
+        <li ><img src="img/product3.jpg" data-pname="debitis" data-price="754"></li>
+        <li ><img src="img/product4.jpg" data-pname="volupt" data-price="568"></li>
+        <li ><img src="img/product5.jpg" data-pname="molesti" data-price="346"></li>
+        <li ><img src="img/product6.jpg" data-pname="facere " data-price="888"></li>
+        <li ><img src="img/product7.jpg" data-pname="tacdsa " data-price="123"></li>
+        <li ><img src="img/product8.jpg" data-pname="Assumend" data-price="99"></li>
+    </ul>
+    <div id="cart">
+        <div id="picCart">
+            <div id="pic1"></div>
+            <div id="bn"></div>
+        </div>
+        <div id="total7">0</div>
+    </div>
+    <button id="clear">clear</button>
+</body>
+</html>

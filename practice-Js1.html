@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice-Js1</title>
+    <link rel="stylesheet" href="class3.css">
+    <link rel="shortcut icon" href='img/city1.jpg' type="image/jpg">
+    <script src='https://kit.fontawesome.com/07f98e99cb.js'></script>
+    <script src="goodCode.js"></script>
+    <style>
+        body{
+            height: 2500px;
+        }
+        #scroll{
+            width: 200px;
+            height: 50px;
+            background-color: rgb(241, 181, 181);
+            margin: 10px;
+            border-radius: 9px;
+            position: fixed;
+            right: 10px;
+            top: 10px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+        }
+        #squer1, .squer{
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 7em;
+            font-weight: bold;
+            color: #3482c2;
+            border-radius: 10px;
+            background-color: rgba(238, 241, 10, 0.986);
+            position: absolute;
+            top:600px;
+            left: -200px;
+            transition: all 0.5s;
+            /* bottom: 300px; */
+        }
+        #squer2{
+            position: absolute;
+            top:840px;
+        
+        }
+        #squer3{
+            position: absolute;
+            top:1080px;
+        
+        }
+
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            window.addEventListener('scroll', function(){
+                _('#scroll').innerHTML = window.pageYOffset;
+                if(window.pageYOffset > 300){
+                _('#squer1').style.left = '200px';
+            } else{
+                _('#squer1').style.left = '-200px'
+            }
+                if(window.pageYOffset > 380){
+                _('#squer2').style.left = '200px';
+            } else{
+                _('#squer2').style.left = '-200px'
+            }
+                if(window.pageYOffset > 480){
+                _('#squer3').style.left = '200px';
+            } else{
+                _('#squer3').style.left = '-200px'
+            }
+
+            });
+
+            
+
+        })
+    </script>
+</head>
+<body>
+    <div id="scroll"></div>
+    <div id="squer1" class="squer">1</div>
+    <div id="squer2" class="squer">2</div>
+    <div id="squer3" class="squer">3</div>
+
+</body>
+</html>

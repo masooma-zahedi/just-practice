@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="goodCode.js"></script>
+    <style>
+        #targ{
+            width: 200px;
+            min-height: 100px;
+            border-radius: 10px;
+            background-color: rgb(218, 132, 132);
+            position: relative;
+            left: 70%;
+        }
+        label{
+            display: block;
+            margin-bottom: 10px;
+        }
+        #targ div{
+            padding: 0 10px;
+            text-align: left;
+        }
+        #targ img{
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            padding: 3px;
+            border: 1px dotted #43dd88; 
+
+        }
+    </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', function(){
+            _('#raz').addEventListener('submit',function(e){
+                e.preventDefault();
+                let fn = _('#fn').value;
+                let ln = _('#ln').value;
+                let em = _('#em').value;
+                _('#targ').innerHTML += '<div>'+fn + " " + ln+ ' ('+ em +')</div>';
+                _('#fn').value = "";
+                _('#ln').value = "";
+                _('#em').value = "";
+            })
+            _('#prod').addEventListener('change',function(){
+                let img = ['product1.jpg', 'product2.jpg', 'product3.jpg', 'product4.jpg', 'product5.jpg', ]
+                op = ''
+                let x =this.options[this.selectedIndex].getAttribute('data-pic');
+                op += '<img src=\"img/'+x +'\">'+'<br/>';
+                op +='descript : '+this.options[this.selectedIndex].getAttribute('data-desc')+'<br/>';
+                op +='Price : '+this.options[this.selectedIndex].value;
+
+                _('#targ').innerHTML +='<div>'+op+'<span class=\"fa fa-close\" id=\"close\"></span>'+'</div>';
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="targ"></div>
+    <form id='raz'>
+        <label for="">first name : <input type="text" id="fn"></label>
+        <label for="">last name :<input type="text" id="ln"></label>
+        <label for="">Email :<input type="email" id="em"></label>
+        <label for=""><input type="submit" value="add" id="submit"></label>
+        <label for="">product : 
+            <select name="" id="prod">
+                <option value="123" data-pic='product1.jpg' data-desc='ipsum dolor sit'>Lorem</option>
+                <option value="433" data-pic='product2.jpg' data-desc='liquid dolor '>Facere</option>
+                <option value="533" data-pic='product3.jpg' data-desc='quibusdam, possimus '>Mollitia</option>
+                <option value="899" data-pic='product4.jpg' data-desc='cabo obcaecat'>Ipsum</option>
+                <option value="293" data-pic='product5.jpg' data-desc='nobis, aute'>Volupt</option>
+            </select>
+            
+        </label>
+    </form>
+</body>
+</html>

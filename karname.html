@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>karname</title>
+    <style>
+        td{
+            border: 1px dotted #89de34;
+            text-align: center;
+            padding: 5px 10px;
+        }
+        .colorful{
+            background-color: rgb(229, 231, 99);
+        }
+        .head{
+            background-color: rgb(87, 86, 86);
+            color: aliceblue;
+        }
+    </style>
+    <script>
+        // let mark=[];
+        let name = prompt(" Inter your name of student :");
+        let classNum = parseInt(prompt("Inter Class Number"));
+        let r = parseFloat(prompt("How many leason ? "));
+        let c = 4;
+        let sum = 0;
+        let mark = [];
+        let avg = "";
+
+
+        document.write("<table>")
+        document.write("<tr><td class='colorful'> Student Name </td><td>"+name+"</td></tr>")
+        document.write("<tr><td class='colorful'>Class Name </td><td>"+classNum+"</td></tr>")
+        document.write("<tr class='head'><td> leason</td><td>Mark(no)</td><td>Mark(let)</td><td>Status</td></tr>")
+        
+        for(let i = 0; i <r; i++){
+            document.write("<tr>")
+//            
+            document.write("<td>")
+                document.write(prompt('name of leason' +(i+1)+ ' : '))
+            document.write("</td>")
+//            
+document.write("<td>")
+                for(let j = i; j <= i; j++){
+             mark = prompt('Mark of leason '+(j+1) + ' : ')
+             if(mark > 20 || mark < 0){
+                 alert("invalid number\n please insert number between 0-20");
+                 --j
+                 continue;
+                }
+                document.write(mark);
+            }   
+
+            document.write("</td>")
+//
+            document.write("<td>")
+                if(mark > 17 ){
+                    document.write("A")
+                } else if( mark > 15){
+                    document.write("B")
+                } else if (mark > 10 ){
+                    document.write("C")
+                } else {
+                    document.write(" F ")
+                }
+            document.write("</td>")
+//
+            document.write("<td>")
+                if(mark >= 10){
+                    document.write("Pass")
+                } else{
+                    document.write("Fail")
+                }
+            document.write("</td>")
+            
+            document.write("</tr>")
+            sum +=parseFloat( mark);
+
+        }
+        avg = parseFloat(sum)/ r;
+        
+//avg
+        document.write("<tr>")
+            document.write("<td class='colorful'>")
+                document.write("Avg ")
+            document.write("</td>")
+
+            document.write("<td>")
+                document.write(avg);
+            document.write("</td>")
+        document.write("</tr>")
+
+//Failed leason
+        document.write("<tr>")
+
+        document.write("<td class='colorful'>Failed leason</td>")
+
+        document.write("<td>")
+            if(mark < 10){
+            document.write(mark.length)
+        }else{
+            document.write("-")
+        }
+        document.write("</td>")
+
+        document.write("</tr>")
+
+//status
+        document.write('<tr>')
+        document.write('<td class="colorful">status</td>')
+        document.write('<td>')
+        if(avg >= 12 ){
+            document.write("Pass")
+        }else{
+            document.write("Fail")
+        }
+        document.write('</td>')
+        document.write('</tr>')
+
+        
+        
+        document.write("</table>")
+
+
+    </script>
+</head>
+<body>
+</body>
+</html>
